@@ -1,11 +1,12 @@
+from random import randrange
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from random import randrange
 
 service = Service('./chromedriver.exe')
 driver = webdriver.Chrome(service=service)
@@ -53,8 +54,5 @@ for search in search_results[:5]:
     search_results_lst.append(search.get_attribute("host"))
 
 assert 'sovcombank.ru' in search_results_lst
-
-
-
 
 driver.close()
